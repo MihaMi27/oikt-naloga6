@@ -23,7 +23,7 @@ do
     then
         echo "User $username already exists"
     else    
-        useradd -m $username
+        useradd -D -G sudo -m $username
         echo "Created user $username"
     fi
 done < "$input"
