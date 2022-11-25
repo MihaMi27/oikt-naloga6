@@ -13,7 +13,7 @@ done
 for i in {1..5}
 do
     mkdir "folder$i"
-    echo "Narejena mapa $folder"
+    echo "Narejena mapa folder$i"
 done
 
 # S FOR zanko nato dodajte vsaj 5 uporabnikov (z domačo mapo) v vaš sistem, ki jih boste prebrali iz lokalne datoteke IN dodajte uporabnike v sudoers skupino
