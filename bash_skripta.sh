@@ -5,12 +5,15 @@ folders='Desktop Documents Downloads Pictures Videos'
 for folder in $folders
 do
     mkdir $folder
+    echo "Narejena mapa $folder"
+    # mkdir /home/$USER/$folder
 done
 
 # S FOR zanko ustvarite 5 map primer (folder1, folder2) z uporabo interpolacije nizov
 for i in {1..5}
 do
-    mkdir folder$i
+    mkdir "folder$i"
+    echo "Narejena mapa $folder"
 done
 
 # S FOR zanko nato dodajte vsaj 5 uporabnikov (z domačo mapo) v vaš sistem, ki jih boste prebrali iz lokalne datoteke IN dodajte uporabnike v sudoers skupino
@@ -23,7 +26,7 @@ do
     then
         echo "User $username already exists"
     else    
-        useradd -D -G sudo -m $username
+        useradd -G sudo -m $username
         echo "Created user $username"
     fi
 done < "$input"
