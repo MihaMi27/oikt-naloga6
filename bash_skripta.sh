@@ -18,18 +18,18 @@ done
 
 # S FOR zanko nato dodajte vsaj 5 uporabnikov (z domačo mapo) v vaš sistem, ki jih boste prebrali iz lokalne datoteke IN dodajte uporabnike v sudoers skupino
 wget -q -O users.txt "https://raw.githubusercontent.com/MihaMi27/oikt-naloga6/main/users.txt"
-input=users.txt
-while IFS= read -r username
+readarray -t usernames < users.txt
+for username in "${usernames[@]}"
 do
         
     if grep $username /etc/passwd > /dev/null # exit status of previous command
     then
         echo "User $username already exists"
     else    
-        useradd -G sudo -m $username
+        useradd -s /bin/bash -G sudo -m $username
         echo "Created user $username"
     fi
-done < "$input"
+done
 
 # Posodobite apt repozitorij z update in upgrade
 if apt-get update
